@@ -30,12 +30,44 @@ while opcion != 5:
         productos.append(producto)
         print(productos)
         
-        
-        
+           
     elif opcion==2:
-        print("estoy en la 2")
+        #utilizanod ciclos FOR en python recorrer LISTAS
+        ## lista plural, diccionario singular, variable iteradora o auxiliar es productoSeleccionado, solo funciona hasta recorrecor el arreglo
+        for productoSeleccionado in productos:
+            print(productoSeleccionado["nombre"])
+            #print("ID: ",producto["id"])
+            #print("Nombre: ",producto["nombre"])
+            #print("Precio: ",producto["precio"])
+            #print("Cantidad: ",producto["cantidad"])
+            #print("Presentacion: ",producto["presentacion"])
+            #print("********")
     elif opcion==3:
-        print("estoy en la 3")
+        #0. pregunta a quien va a editar
+        productoCambio = int(input("Digita el ID del producto que deseas editar: "))
+        #1. encontrar el producto a editar, crear bandera para que no se repita
+        for productoBuscado in productos:
+            if productoBuscado["id"]==productoCambio:
+                print("Producto encontrado")
+                break
+            else:
+                print("Producto no encontrado")
+                #print(productoBuscado)
+                #productoSeleccionado=productoBuscado
+                #2. selecciono el producto 
+                #3. accedo a las propiedaes del atributo que quiero modifica
+                productoSeleccionado["nombre"]=input("Digita el nuevo nombre del producto: ")
+                productoSeleccionado["precio"]=int(input("Digita el nuevo precio del producto: "))
+                productoSeleccionado["cantidad"]=int(input("Cuantos elementos de este producto vas a llevar: "))
+                productoSeleccionado["presentacion"]=input("Cual presentacion llevaras? ")
+                print("Producto modificado")
+                print(productoSeleccionado)
+                break
+        else:
+            print("Producto no encontrado")
+        #2. selecciono el producto 
+        #3. accedo a las propiedaes del atributo que quiero modifica
+        # buscar pop para eliminar un elemento de una lista
     elif opcion==4:
         print("estoy en la 4")
     else:
